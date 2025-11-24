@@ -5,7 +5,6 @@ library(Hmisc)
 
 # base_con_ingresos_reales es la base individual con el coeficiente de ajuste
 base_con_ingresos_reales <- filtered_db %>%
-  # Unir con la serie IPC completa que creaste
   left_join(ipc_final, by = c("ANO4", "TRIMESTRE")) %>%
   
   # Filtrar el universo de análisis: Ocupados que declararon ingreso
@@ -20,7 +19,7 @@ base_con_ingresos_reales <- filtered_db %>%
 
 # Agrupamos por tiempo y aglomerado para calcular las medidas de tendencia y posición.
 resumen_ingresos <- base_con_ingresos_reales %>%
-  group_by(AGLO_NOMBRE, FECHA, PERIODO) %>%
+  group_by(AGLO_NOMBRE, AGLOMERADO, FECHA, PERIODO) %>%
   summarise(
     # Medida de Tendencia Central Principal: Mediana (Robusta ante outliers)
     MEDIANA_INGRESO_REAL = wtd.quantile(P47T_REAL, PONDII, probs = 0.5, na.rm = TRUE),

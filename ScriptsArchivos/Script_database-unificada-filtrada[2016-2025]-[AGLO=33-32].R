@@ -15,7 +15,7 @@ filtered_db <- database %>%
     
     #Transform to numeric
     across(
-      c(P47T, ESTADO, AGLOMERADO, ANO4, TRIMESTRE, PONDII, PONDERA), 
+      c(P47T, ESTADO, AGLOMERADO, ANO4, TRIMESTRE, PONDII, PONDERA, CH06), 
       as.numeric
     ),
     

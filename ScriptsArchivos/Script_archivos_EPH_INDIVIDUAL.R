@@ -13,9 +13,9 @@ files <- list.files(
 
 cols <- c(
   "ANO4", "TRIMESTRE", "AGLOMERADO", "ESTADO", "CH06", "P47T", "PONDERA", "PONDII",
-  "NIVEL_ED", "CH04", "PP04B_COD", "PP04D_COD"
+  "NIVEL_ED", "CH04", "PP04B_COD", "PP04D_COD", "PP04G", "PP3E_TOT", "CAT_OCUP",
+  "PP07H", "PP04A", "PP07A", "PP07G1", "PP07I"
 )
-
 
 df_names <- basename(files) %>%
   sub("\\.txt\\.txt$", "", .) %>%
